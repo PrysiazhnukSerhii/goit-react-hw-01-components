@@ -1,9 +1,10 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const FrendList = styled.ul`
-list-style: none;
-display:flex;
-flex-direction: column;`;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+`;
 
 export const FrendItem = styled.li`
 display:flex;
@@ -16,11 +17,11 @@ border-radius: 0px 0px 4px 4px;
 }`;
 
 export const Status = styled.p`
- color: ${props=> {
-    if(props.children==="online"){
-        return "green"
+  color: ${props => {
+    if (props.children === 'online') {
+      return 'green';
     }
-     
-    return "red"
-}}
-`
+
+    return 'red';
+  }};
+`;

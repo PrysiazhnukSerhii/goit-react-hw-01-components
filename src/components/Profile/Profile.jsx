@@ -1,29 +1,25 @@
 import PropTypes from 'prop-types';
-import {Container, AvatarPicture,Stats,StatsItem} from './Profile.styled'
+import { Container, AvatarPicture, Stats, StatsItem } from './Profile.styled';
 
-export function PaintingProfile  ({
+export function PaintingProfile({
   username,
-  avatar="https://cdn-icons-png.flaticon.com/512/1077/1077012.png",
+  avatar = 'https://cdn-icons-png.flaticon.com/512/1077/1077012.png',
   tag,
   location,
-  stats ,}) {
+  stats,
+}) {
+  let { followers, views, likes } = stats;
 
-   let {followers,views,likes} = stats;
-   
-   
-      return (<Container >
+  return (
+    <Container>
       <div className="description">
-        < AvatarPicture
-        src={avatar}
-          alt="foto"
-          className="avatar"
-        />
+        <AvatarPicture src={avatar} alt="foto" className="avatar" />
         <p className="name">{username}</p>
         <p className="tag">@{tag}</p>
         <p className="location">{location}</p>
       </div>
-    
-      <Stats >
+
+      <Stats>
         <StatsItem>
           <span className="label">Followers</span>
           <span className="quantity">{followers}</span>
@@ -37,60 +33,19 @@ export function PaintingProfile  ({
           <span className="quantity">{likes}</span>
         </StatsItem>
       </Stats>
-    </Container>)
-  }
+    </Container>
+  );
+}
 
-  PaintingProfile.propTypes = {
-    username:PropTypes.string.isRequired,
-    avatar:PropTypes.string.isRequired,
-    tag:PropTypes.string.isRequired,
-    location:PropTypes.string.isRequired,
+PaintingProfile.propTypes = {
+  username: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 
-    stats:PropTypes.shape({
-      followers:PropTypes.number.isRequired,
-    views:PropTypes.number.isRequired,
-    likes:PropTypes.number.isRequired
-    }),
- 
-  }
-
-
-
-
-
-
-
-
-
-  // export function Profile  ({proto}) {
-//   console.log(proto)
-//   console.log(proto.avatar)
-//     return (<div className="profile">
-//     <div className="description">
-//       <img
-//       src={proto.avatar}
-//         // src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-//         alt="User avatar"
-//         className="avatar"
-//       />
-//       <p className="name">{proto.username}</p>
-//       <p className="tag">@{proto.tag}</p>
-//       <p className="location">{proto.location}</p>
-//     </div>
-  
-//     <ul className="stats">
-//       <li>
-//         <span className="label">Followers</span>
-//         <span className="quantity">{proto.followers}</span>
-//       </li>
-//       <li>
-//         <span className="label">Views</span>
-//         <span className="quantity">{proto.views}</span>
-//       </li>
-//       <li>
-//         <span className="label">Likes</span>
-//         <span className="quantity">{proto.likes}</span>
-//       </li>
-//     </ul>
-//   </div>)
-// }
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
+};
